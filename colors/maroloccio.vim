@@ -3,11 +3,12 @@
 " Scheme      : maroloccio
 " Maintainer  : Marco Ippolito < m a r o l o c c i o [at] g m a i l . c o m >
 " Comment     : works well in GUI mode
-" Version     : v0.2.8, inspired by watermark
-" Date        : 16 March 2009
+" Version     : v0.2.9, inspired by watermark
+" Date        : 2 April 2009
 "
 " History:
 "
+" 0.2.9 Improved readability of cterm searches for dark backgrounds
 " 0.2.8 Added VimDiff colouring
 " 0.2.7 Further improved readability of cterm colours
 " 0.2.6 Improved readability of cterm colours on different terminals
@@ -98,23 +99,26 @@ endif
 " --- CTerm (Dark)
 "
 if &background == "dark"
-  hi Normal         ctermfg=Grey          "ctermbg=DarkGrey
-  hi LineNr         ctermfg=DarkCyan      ctermbg=Black
-  hi FoldColumn     ctermfg=DarkCyan      ctermbg=Black
-  hi TabLine        ctermfg=DarkGrey      ctermbg=Grey
-  hi StatusLine     ctermfg=DarkGrey      ctermbg=Grey
-  hi StatusLine     ctermfg=Brown         ctermbg=Black
-  hi StatusLineNC   ctermfg=Grey          ctermbg=DarkGrey
-  hi WildMenu       ctermfg=Grey          ctermbg=DarkGrey
-  hi Folded         ctermfg=Black         ctermbg=DarkCyan
-  hi VertSplit      ctermfg=Black         ctermbg=Brown
-  hi Visual         ctermfg=Brown         ctermbg=Black
-  hi DiffChange     ctermfg=Black         ctermbg=Brown
-  hi Search         ctermfg=Grey          ctermbg=DarkGreen
-  hi DiffAdd        ctermfg=Grey          ctermbg=DarkGreen
-  hi IncSearch      ctermfg=Brown         ctermbg=Black
-  hi DiffText       ctermfg=Brown         ctermbg=Black
+  "hi Normal        ctermfg=Grey          "ctermbg=DarkGrey
   hi Cursor         ctermfg=Black         ctermbg=Grey
+  hi Folded         ctermfg=DarkGrey      ctermbg=Black
+  hi DiffAdd        ctermfg=Black         ctermbg=DarkGreen
+  hi LineNr         ctermfg=DarkGrey
+  hi FoldColumn     ctermfg=DarkGrey
+  hi VertSplit      ctermfg=DarkGrey      ctermbg=Grey
+  hi VertSplit      ctermfg=DarkGrey      ctermbg=DarkGrey
+  hi TabLine        ctermfg=DarkGrey      ctermbg=Grey
+  hi StatusLine     ctermfg=Grey          ctermbg=DarkGrey
+  hi Visual         ctermfg=Brown         ctermbg=Black
+  hi Search         ctermfg=Black         ctermbg=Brown
+  hi DiffDelete     ctermfg=Brown         ctermbg=DarkRed
+  hi Todo           ctermfg=Brown         ctermbg=DarkRed
+  hi Error          ctermfg=Brown         ctermbg=DarkRed
+  hi IncSearch      ctermfg=DarkCyan      ctermbg=Black
+  hi DiffChange     ctermfg=Grey          ctermbg=DarkBlue
+  hi StatusLineNC   ctermfg=DarkGrey      ctermbg=Black
+  hi WildMenu       ctermfg=Grey          ctermbg=DarkGrey
+  hi DiffText       ctermfg=DarkBlue      ctermbg=Grey
   hi NonText        ctermfg=DarkRed
   hi SpecialKey     ctermfg=DarkRed
   hi Conditional    ctermfg=Brown
@@ -145,17 +149,14 @@ if &background == "dark"
   hi Define         ctermfg=DarkMagenta
   hi Macro          ctermfg=DarkMagenta
   hi PreCondit      ctermfg=DarkMagenta
-  hi Todo           ctermfg=DarkRed       ctermbg=DarkGrey
-  hi Error          ctermfg=Grey          ctermbg=DarkRed
-  hi DiffDelete     ctermfg=Grey          ctermbg=DarkRed
   hi Underlined     cterm=Underline
   hi Title          ctermfg=DarkRed
   if version>= 700
-    hi Pmenu        ctermfg=Grey          ctermbg=DarkBlue
-    hi PmenuSel     ctermfg=DarkBlue      ctermbg=Grey
-    hi CursorLine   cterm=Underline
-    hi CursorColumn ctermfg=Grey          ctermbg=Black
-    hi MatchParen   ctermfg=Grey          ctermbg=Green
+  hi PmenuSel       ctermfg=DarkBlue      ctermbg=Grey
+  hi CursorLine     ctermbg=Black         cterm=Underline
+  hi CursorColumn   ctermfg=Grey          ctermbg=Black
+  hi MatchParen     ctermfg=Grey          ctermbg=Green
+  hi Pmenu          ctermfg=Grey          ctermbg=DarkBlue
   endif
 
 " --- CTerm (Light)
@@ -192,31 +193,31 @@ else
   hi PreCondit      ctermfg=DarkMagenta
   hi Comment        ctermfg=DarkGreen
   hi SpecialComment ctermfg=DarkGreen
+  hi Title          ctermfg=DarkRed
   hi LineNr         ctermfg=Black         ctermbg=Grey
-  hi Visual         ctermfg=Brown         ctermbg=Black
-  hi DiffChange     ctermfg=Black         ctermbg=Brown
-  hi Search         ctermfg=Grey          ctermbg=DarkGreen
-  hi DiffAdd        ctermfg=Grey          ctermbg=DarkGreen
-  hi IncSearch      ctermfg=Brown         ctermbg=Black
-  hi DiffText       ctermfg=Brown         ctermbg=Black
   hi Folded         ctermfg=Black         ctermbg=DarkCyan
   hi Cursor         ctermfg=Black         ctermbg=Grey
-  hi Todo           ctermfg=Grey          ctermbg=DarkRed
-  hi Error          ctermfg=Grey          ctermbg=DarkRed
-  hi DiffDelete     ctermfg=Grey          ctermbg=DarkRed
   hi FoldColumn     ctermfg=Black         ctermbg=Grey
+  hi DiffAdd        ctermfg=Black         ctermbg=DarkGreen
+  hi DiffChange     ctermfg=Grey          ctermbg=DarkBlue
+  hi DiffText       ctermfg=DarkBlue      ctermbg=Grey
+  hi DiffDelete     ctermfg=Brown         ctermbg=DarkRed
+  hi Visual         ctermfg=Brown         ctermbg=Black
+  hi IncSearch      ctermfg=Brown         ctermbg=Black
+  hi Search         ctermfg=Grey          ctermbg=DarkGreen
+  hi Todo           ctermfg=Brown         ctermbg=DarkRed
+  hi Error          ctermfg=Brown         ctermbg=DarkRed
   hi VertSplit      ctermfg=Grey          ctermbg=Black
-  hi Underlined     cterm=Underline
-  hi Title          ctermfg=DarkRed
-  if version>= 700
-    hi CursorLine   cterm=Underline
-    hi CursorColumn ctermfg=Black         ctermbg=Grey
-    hi Pmenu        ctermfg=Grey          ctermbg=DarkBlue
-    hi PmenuSel     ctermfg=DarkBlue      ctermbg=Grey
-    hi MatchParen   ctermfg=Grey          ctermbg=Green
-  endif
   hi StatusLine     ctermfg=Grey          ctermbg=Black
   hi StatusLineNC   ctermfg=Grey          ctermbg=DarkBlue
-  hi TabLine        ctermfg=DarkBlue      ctermbg=Grey
   hi WildMenu       ctermfg=Grey          ctermbg=DarkBlue
+  hi TabLine        ctermfg=DarkBlue      ctermbg=Grey
+  hi Underlined     cterm=Underline
+  if version>= 700
+  hi CursorLine     ctermbg=Grey          cterm=Underline
+  hi CursorColumn   ctermfg=Black         ctermbg=Grey
+  hi Pmenu          ctermfg=Grey          ctermbg=DarkBlue
+  hi PmenuSel       ctermfg=DarkBlue      ctermbg=Grey
+  hi MatchParen     ctermfg=Grey          ctermbg=Green
+  endif
 endif
